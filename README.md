@@ -40,7 +40,8 @@ Filter out mapped reads, that are mapped to regiosn in the MAg, that also produc
   # convert mapping results to bam and sort
   samtools sort $outdir/${sample}.mapped.sam > $outdir/${sample}.mapped.bam
   # run bedtools intersect to remove mappings that fall in ambiguous regions
-  bedtools intersect -a $outdir/${sample}.mapped.bam -b positions_to_ignore.bed -v > $outdir/${sample}.filtered.bam	
+  bedtools intersect -a $outdir/${sample}.mapped.bam -b positions_to_ignore.bed -v > $outdir/${sample}.filtered.bam
+done
 </code></pre>
 
 ### 4. Collect mapping information
