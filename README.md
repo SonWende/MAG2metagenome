@@ -1,7 +1,11 @@
 # MAG2metagenome
 Scripts to screen metagenomics short read datasets for the presence of a genome, MAG or bin of interest.
 
-Pipeline consists of 3 steps:
+#### Background
+Short reads that originate from highly conserved regions or closely related species, may results in mappings of metagenomics reads to a MAG of interest with an identity of 97% or higher. To minimize such misleading mappings, first regions in the MAG that produced alignments to the RefSeq database of 97% identity or higher are identified using blast+. A bed file containing positions with high identity alignments is generated from tabular blast output and is used to exclude all mappings from the bbmap output that overlap with these regions. All remaining reads can be assigned to the MAG of interest with high confidence.
+
+
+The pipeline consists of 3 steps:
 1) Identification of potential ambiguous mapping sites in MAG (or genome)
 3) Mapping metagenomics short reads to MAG at 97% identity with B
 4) Remove ambiguous mappings
